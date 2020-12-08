@@ -82,7 +82,7 @@ const TakePictureScreen = ({navigation}) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     disabled={imageUri==null?true:false}
-                    onPress = {()=>{navigation.navigate('displayPicture')}}
+                    onPress = {()=>{navigation.navigate('displayPicture',{imageUri})}}
                 >
                     <Text>Next</Text>
                 </TouchableOpacity>

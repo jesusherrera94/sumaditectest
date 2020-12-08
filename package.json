@@ -23,7 +23,8 @@
     "react-native-web": "~0.13.12",
     "expo-battery": "~3.0.0",
     "@react-native-community/netinfo": "5.9.6",
-    "expo-camera": "~9.0.0"
+    "expo-camera": "~9.0.0",
+    "expo-image-picker": "~9.1.1"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

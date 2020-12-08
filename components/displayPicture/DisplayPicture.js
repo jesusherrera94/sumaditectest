@@ -1,12 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image } from 'react-native';
 import Layout from '../Layout/Layout';
 
-const DisplayPictureScreen = ({navigation}) => {
+const DisplayPictureScreen = ({navigation, route}) => {
+    const { imageUri } = route.params;
     return ( 
         <Layout navigation={navigation}>
             <View>
-                <Text>DisplayPictureScreen</Text>
+            <View style={{width:"80%", height:"80%" }}>
+            <Image 
+                        source={{uri:imageUri}}
+                        style={{ width:"100%", height:"100%"  }}
+            />
+            </View>
                 <TouchableOpacity
                     onPress = {()=>{}}
                 ><Text>Save this picture from Gallery</Text>
