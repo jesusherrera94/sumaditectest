@@ -39,8 +39,8 @@ const Layout = ({children,navigation}) => {
 
     return ( 
     <View style={styles.container}>
-        <View style={styles.headerStyle}>
-            <Text>Battery: {Math.round(batteryLevel*100)}%</Text>
+        <View style={[styles.headerStyle]}>
+            <Text style={{color:batteryLevel<=0.2?"#993500":"black"}}>Battery: {Math.round(batteryLevel*100)}%</Text>
             <Text>Conection status: {networkInfo.type} {networkInfo.isConnected}</Text>
         </View>
       {children}
@@ -55,8 +55,12 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff'
     },
     headerStyle:{
+      width:"88%",
       marginTop:"10%",
-      marginLeft:"5%"
+      marginLeft:"5%",
+      borderWidth:1,
+      borderRadius:3,
+      padding:4,
     }
 
   });

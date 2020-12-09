@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Platform } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Platform, Image } from 'react-native';
 import Layout from '../Layout/Layout';
 import * as ImagePicker from 'expo-image-picker';
 import styles from '../styles/styles';
@@ -33,6 +33,10 @@ const Home = ({navigation}) => {
     return ( 
         <Layout navigation={navigation} >
             <View style={styles.btnContainer}>
+              <Image
+                    style={styles.homeImage}
+                    source={require('../../assets/SUMADI.png')}
+              />
                 <TouchableOpacity
                     style={[styles.btn,styles.btn1]}
                     onPress = {()=>{navigation.navigate('newPicture')}}

@@ -20,6 +20,7 @@ import { StyleSheet } from 'react-native';
         left:"10%"
     },
     displayPictureContainer:{
+        marginTop:"2%",
         width:"50%", 
         height:"50%",
         left:"20%" 
@@ -37,16 +38,20 @@ import { StyleSheet } from 'react-native';
         marginRight:"10%"
     },
     btn1:{
-        backgroundColor:"#2A2A2A"
+        backgroundColor:"#2A2A2A",
+        borderColor:"#2A2A2A"
     },
     btn2:{
-        backgroundColor:"#1CBBB4"
+        backgroundColor:"#1CBBB4",
+        borderColor:"#1CBBB4"
     },
     btn3:{
-        backgroundColor:"#FF9D2A"
+        backgroundColor:"#FF9D2A",
+        borderColor:"#FF9D2A"
     },
     btn3Dissabled:{
-        backgroundColor:"#FFB773"
+        backgroundColor:"#FFB773",
+        borderColor:"#FFB773"
     },
     btnTxt:{
         
@@ -56,6 +61,11 @@ import { StyleSheet } from 'react-native';
     clearBtnTxt:{
         textDecorationLine:"underline",
         color:"#007AFF"
+    },
+    homeImage:{
+        width:300,
+        height:100,
+        marginBottom:10
     },
     btnTkPicture:{
         marginTop:"2%",
