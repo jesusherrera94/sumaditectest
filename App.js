@@ -11,15 +11,20 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="newPicture" 
+        <Stack.Screen 
+                      name="Home" 
+                      component={Home} 
+        />
+        <Stack.Screen 
+                      name="newPicture" 
                       component={TakePictureScreen} 
                       options={{ title: 'Take new picture' }}
         />
         <Stack.Screen 
                       name="displayPicture" 
                       component={DisplayPictureScreen} 
-                      options={{ title: 'Display results' }}/>
+                      options={{ title: 'Display results' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

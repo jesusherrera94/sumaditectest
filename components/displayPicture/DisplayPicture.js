@@ -44,29 +44,30 @@ const DisplayPictureScreen = ({navigation, route}) => {
     return ( 
         <Layout navigation={navigation}>
             <View>
-            <View style={styles.displayPictureContainer}>
-            <Image 
+                <View style={styles.displayPictureContainer}>
+                <Image 
                         source={{uri:imageUri}}
                         style={{ width:"100%", height:"100%"  }}
-            />
-            </View>
-            {response==null?
-                (
-                    <View style={{marginTop:35}}>
-                        <ActivityIndicator size="large" color="#007AFF"/>
-                    </View>
-                )
-                :
-                (<ScrollView style={styles.scrollviewStyle}>
-                    <Text>{JSON.stringify(response)}</Text>
-                </ScrollView>)
-            }
+                />
+                </View>
+                {response==null?
+                    (
+                        <View style={{marginTop:35}}>
+                            <ActivityIndicator size="large" color="#007AFF"/>
+                        </View>
+                    )
+                    :
+                    (
+                        <ScrollView style={styles.scrollviewStyle}>
+                            <Text>{JSON.stringify(response)}</Text>
+                        </ScrollView>
+                    )
+                }
                 <TouchableOpacity
-                    style={[styles.btnDownloadPicture, styles.btn1]}
-                    onPress = {saveImage}
-                ><Text
-                    style={styles.btnTxt}
-                >Save this picture to Gallery</Text>
+                                style={[styles.btnDownloadPicture, styles.btn1]}
+                                onPress = {saveImage}
+                >
+                    <Text style={styles.btnTxt}>Save this picture to Gallery</Text>
                 </TouchableOpacity>
             </View>
         </Layout>

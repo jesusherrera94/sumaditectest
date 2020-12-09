@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Platform, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Platform, Image, Alert } from 'react-native';
 import Layout from '../Layout/Layout';
 import * as ImagePicker from 'expo-image-picker';
 import styles from '../styles/styles';
@@ -12,7 +12,7 @@ const Home = ({navigation}) => {
           if (Platform.OS !== 'web') {
             const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
             if (status !== 'granted') {
-              //alert('Sorry, we need camera roll permissions to make this work!');
+              Alert.alert('Sorry, we need camera roll permissions to make this work!');
             }
           }
         })();
@@ -37,18 +37,21 @@ const Home = ({navigation}) => {
                     style={styles.homeImage}
                     source={require('../../assets/SUMADI.png')}
               />
+
                 <TouchableOpacity
                     style={[styles.btn,styles.btn1]}
                     onPress = {()=>{navigation.navigate('newPicture')}}
                 >
                     <Text style={styles.btnTxt}>Take New Picture</Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity
                     style={[styles.btn,styles.btn2]}
                     onPress = {pickImage}
                 >
                     <Text style={styles.btnTxt}>Load Picture from Gallery</Text>
                 </TouchableOpacity>
+                
             </View>
         </Layout>
      );

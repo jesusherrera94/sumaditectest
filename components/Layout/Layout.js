@@ -12,12 +12,12 @@ const Layout = ({children,navigation}) => {
                                                     isConnected:null
                                                     });
     //Battery level
-     const batterySubscribe = async () => {
+    const batterySubscribe = async () => {
         const batteryLevel = await Battery.getBatteryLevelAsync();
         setBatteryLevel(batteryLevel);
-      }
+    }
 
-      useEffect(()=>{
+    useEffect(()=>{
           //battery info
           batterySubscribe();
           const subs = Battery.addBatteryLevelListener(({ batteryLevel }) => {
@@ -35,7 +35,7 @@ const Layout = ({children,navigation}) => {
               subs.remove();
               unsubscribe();
           }
-      },[])
+    },[])
 
     return ( 
     <View style={styles.container}>
