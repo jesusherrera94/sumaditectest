@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Platform } from 'react-native';
 import Layout from '../Layout/Layout';
 import * as ImagePicker from 'expo-image-picker';
-
+import styles from '../styles/styles';
 
 
 const Home = ({navigation}) => {
@@ -32,21 +32,25 @@ const Home = ({navigation}) => {
 
     return ( 
         <Layout navigation={navigation} >
-            <View>
-                <Text>HomeScreen</Text>
+            <View style={styles.btnContainer}>
                 <TouchableOpacity
+                    style={[styles.btn,styles.btn1]}
                     onPress = {()=>{navigation.navigate('newPicture')}}
                 >
-                    <Text>Take New Picture</Text>
+                    <Text style={styles.btnTxt}>Take New Picture</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
+                    style={[styles.btn,styles.btn2]}
                     onPress = {pickImage}
                 >
-                    <Text>Load Picture from Gallery</Text>
+                    <Text style={styles.btnTxt}>Load Picture from Gallery</Text>
                 </TouchableOpacity>
             </View>
         </Layout>
      );
 }
+
+
+
  
 export default Home;

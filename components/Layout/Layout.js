@@ -39,11 +39,10 @@ const Layout = ({children,navigation}) => {
 
     return ( 
     <View style={styles.container}>
-        <View>
+        <View style={styles.headerStyle}>
             <Text>Battery: {Math.round(batteryLevel*100)}%</Text>
-            <Text>Conection: {networkInfo.type} {networkInfo.isConnected}</Text>
+            <Text>Conection status: {networkInfo.type} {networkInfo.isConnected}</Text>
         </View>
-      <Text>Layout</Text>
       {children}
       <StatusBar style="auto" />
     </View>
@@ -54,8 +53,12 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff'
-
     },
+    headerStyle:{
+      marginTop:"10%",
+      marginLeft:"5%"
+    }
+
   });
   
  

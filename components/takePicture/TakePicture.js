@@ -1,8 +1,8 @@
 import React,{ useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity,Image } from 'react-native';
+import { Text, View, TouchableOpacity,Image } from 'react-native';
 import Layout from '../Layout/Layout';
 import { Camera } from 'expo-camera';
-
+import styles from '../styles/styles';
 
 const TakePictureScreen = ({navigation}) => {
     
@@ -25,21 +25,24 @@ const TakePictureScreen = ({navigation}) => {
         if(camera){
             let picture = await camera.takePictureAsync();
             setImageUri(picture.uri);
-            console.log(picture.uri);
         }
       }
 
     return ( 
         <Layout navigation={navigation}>
-            <View>
+            <View style={styles.container}>
                 {imageUri ==null?(null):(
                     <TouchableOpacity
+                    style={styles.clearBtn}
                     onPress = {()=>{setImageUri(null)}}
                 >
-                    <Text>Clear</Text>
+                    <Text
+                        style={styles.clearBtnTxt}
+                    >Clear</Text>
                 </TouchableOpacity>
                 )}
-                <View style={{width:"80%", height:"80%" }}>
+
+                <View style={styles.cameraImageContainer}>
                 {imageUri ==null?(
                         <Camera 
                         style={{ width:"100%", height:"100%"  }} 
@@ -53,19 +56,13 @@ const TakePictureScreen = ({navigation}) => {
                         source={{uri:imageUri}}
                         style={{ width:"100%", height:"100%"  }}
                     />
-                )}
-                    
+                )}  
             </View>
+
             <View
-                    style={{
-                        backgroundColor: 'transparent',
-                        flexDirection: 'row',
-                    }}>
+                    style={styles.tkPictureBtnContaner}>
                 <TouchableOpacity
-                    style={{
-                    alignSelf: 'flex-end',
-                    alignItems: 'center',
-                    }}
+                    style={[styles.btnTkPicture,styles.btn1]}
                     onPress={() => {
                     setType(
                         type === Camera.Constants.Type.back
@@ -73,18 +70,26 @@ const TakePictureScreen = ({navigation}) => {
                         : Camera.Constants.Type.back
                     );
                     }}>
-                    <Text > Flip </Text>
+                    <Text 
+                        style={styles.btnTxt}
+                    > Flip </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
+                    style={[styles.btnTkPicture,styles.btn2]}
                     onPress = {takePhoto}
                 >
-                    <Text>Take Picture</Text>
+                    <Text
+                        style={styles.btnTxt}
+                    >Take Picture</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
+                    style={[styles.btnTkPicture,imageUri==null?styles.btn3Dissabled:styles.btn3]}
                     disabled={imageUri==null?true:false}
                     onPress = {()=>{navigation.navigate('displayPicture',{imageUri})}}
                 >
-                    <Text>Next</Text>
+                    <Text
+                        style={styles.btnTxt}
+                    >Next</Text>
                 </TouchableOpacity>
         </View>
             </View>
